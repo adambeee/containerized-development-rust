@@ -1,0 +1,35 @@
+// This is a configuration file that allows Remote-Containers to work
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README
+// Additionally:
+// https://code.visualstudio.com/remote/advancedcontainers/connect-multiple-containers
+// https://code.visualstudio.com/docs/remote/create-dev-container
+
+{
+
+    "name": "RustHelloWorld",
+    // Sets the build context to one level up instead of the .devcontainer folder.
+    // Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
+    // selects Dockerfile in devcontainer.
+    // differences is the one at root is to run the server, the one in .devcontainer is the debug container
+    // The order of the files is important since later files override previous ones
+    // Sets the build context to one level up instead of the .devcontainer folder.
+  
+    // Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
+    "dockerFile": "Dockerfile",
+  
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+      "rust-lang.rust",
+      "vadimcn.vscode-lldb",
+      "matklad.rust-analyzer",
+      "rust-lang.rust-analyzer"
+    ],
+  
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [
+      9999
+    ],
+  
+    "workspaceMount": "source=${localWorkspaceFolder},target=/home/me/,type=bind,consistency=cached",
+    "workspaceFolder": "/home/me"
+  }
